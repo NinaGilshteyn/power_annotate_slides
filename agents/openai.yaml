@@ -1,0 +1,4 @@
+interface:
+  display_name: "Power Annotate Deck"
+  short_description: "Slide notebooks with notes, reference pages, and Anki"
+  default_prompt: "Use $power-annotate-deck to turn my lecture deck into an annotated study notebook with Anki drafts and a Google Docs notes template."
