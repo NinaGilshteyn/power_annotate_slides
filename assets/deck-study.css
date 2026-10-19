@@ -1,0 +1,17 @@
+.pdf-text-layer{position:absolute;inset:0;z-index:1;user-select:text;-webkit-user-select:text;cursor:text;overflow:hidden;color:transparent}
+.pdf-text-layer span{position:absolute;color:transparent;-webkit-text-fill-color:transparent;white-space:pre;line-height:1;font-family:Arial,sans-serif;transform-origin:0 0;cursor:text;user-select:text;-webkit-user-select:text}
+.pdf-text-layer span::selection{background:#9d81ed88;color:transparent}
+.slide.drawing .pdf-text-layer{pointer-events:none;user-select:none;-webkit-user-select:none}
+.slide svg{z-index:2}.slide .pin{z-index:3}
+.topbar{padding-bottom:36px}
+.deck-progress-wrap{position:absolute;left:22px;right:22px;bottom:7px;display:flex;align-items:center;gap:12px}
+.deck-progress-track{height:9px;flex:1;background:var(--line);border-radius:20px;overflow:visible}
+.deck-progress-fill{height:100%;border-radius:20px;background:linear-gradient(90deg,#b194f4,#7ce1ce,#e897c3);transition:width .5s ease,box-shadow .5s ease;min-width:3px}
+.deck-progress-label{font-size:11px;font-weight:700;color:var(--ink);min-width:110px;text-align:right}
+#milestone{position:fixed;inset:0;z-index:70;pointer-events:none;overflow:hidden}
+.milestone-message{position:absolute;left:50%;top:25%;transform:translateX(-50%);max-width:90vw;width:max-content;padding:22px 30px;text-align:center;background:#fff7ff;color:#39265e;border:2px solid #d2b9fb;border-radius:22px;box-shadow:0 8px 50px #8d63c344;font-size:clamp(20px,3vw,34px);font-weight:750;pointer-events:auto}
+.milestone-message button{display:block;margin:12px auto 0;background:#49348e;color:white;border:0;font-size:13px}
+.heart-confetti{position:absolute;top:-60px;color:var(--heart);font-size:var(--size);animation:heart-fall var(--duration) linear forwards;animation-delay:var(--delay);opacity:0;will-change:transform,opacity}
+@keyframes heart-fall{0%{transform:translateY(-10vh) rotate(0deg);opacity:0}8%{opacity:1}88%{opacity:1}100%{transform:translate(var(--drift),115vh) rotate(var(--spin));opacity:0}}
+@media(prefers-reduced-motion:reduce){.deck-progress-fill{transition:none}.heart-confetti{animation:none;top:12%;opacity:.8}.heart-confetti:nth-child(n+9){display:none}}
+@media(max-width:800px){.deck-progress-wrap{left:10px;right:10px}.milestone-message{width:90vw}}
