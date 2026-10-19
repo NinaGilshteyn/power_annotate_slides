@@ -50,3 +50,31 @@ If explicitly requested to create a native Google Doc, use available connected G
 ## Completion
 
 Verify slide count/order and image fidelity; notes/drawings across zoom and navigation; inserted page paste/reorder/delete/undo; card generation, deduplication, editing and TSV; Google Docs template modes and fallback; light/dark contrast; and portable restoration in fresh browser storage. Validate imported data and avoid executable pasted HTML. Report checks actually performed, including any rendering, browser-permission, or OCR limitations. Deliver the HTML and brief save/import instructions. When tools permit, open the completed notebook for the user. Do not publish or upload it without authorization.
+
+## Auto cloze in the card editor
+
+Place an **Auto cloze** button beside **Cloze selected words/term**, plus an undo action. Apply it to the current card Text without requiring a selection. Suggest focused essential terms with enough context left visible; never wrap the entire passage. Preserve source wording, existing valid clozes, Extra, Tags, provenance, saved cards, and other drafts. Start at c1 for unclozed notes or continue after the highest existing number. Keep the result an editable unsaved draft and label offline heuristic suggestions for review. Do not overwrite or recloze existing cloze spans; reject malformed braces and give helpful feedback for blank or unsuitable text. Undo restores the prior text; switching cards clears the undo baseline. Verify multiple sentences, existing clozes, blank input, source-text preservation, undo, and portable restoration.
+
+
+### Required in every deck notebook
+
+Auto cloze is a default feature for **every** deck and subject, including manually added blank drafts. Do not restrict it to the sample Lecture 11 notebook or initial generated cards. The screenshot-style label **Cloze selected words** and the label **Cloze selected term** must both have the companion button. Preserve the existing notebook design.
+
+Bundle [assets/auto-cloze.js](assets/auto-cloze.js) inline in each generated standalone HTML unless an equivalent tested native implementation already exists. The asset finds manual cloze controls, adds Auto cloze and Undo auto cloze beside them, and connects changes to the current Text field's input/change handlers. It supports editors created dynamically after page load. It is a local heuristic, not an AI model; retain review labeling. Do not link to a local skill path or external script from delivered HTML.
+
+For an existing notebook, run `python scripts/upgrade_auto_cloze.py EXACT_NOTEBOOK.html` from this skill directory, then verify that exact output. The helper makes a backup and injects the self-contained feature without rewriting embedded state or changing storage keys. Run separately on each user-specified existing file. Updating this skill does not retroactively alter arbitrary existing HTML files; never say that it does. If the notebook lacks a recognizable manual cloze button or textarea, adapt its actual editor rather than reporting success from injection alone.
+
+Acceptance: open a blank draft in the delivered notebook, verify that Auto cloze is visible beside the manual button, type a multi-sentence passage and click it without selecting text, inspect focused deletions, undo, and confirm edited drafts survive save/reopen. Test both manual-button labels and dynamically mounted editors when changing the adapter. Avoid duplicate controls after portable HTML restoration. Preserve notes/cards throughout upgrades.
+
+
+## Multi-concept clozes, slide text selection, and progress celebrations
+
+These are defaults for all subjects and decks, not just the demonstration notebook.
+
+- **Auto cloze** should target multiple independent concepts and useful phrases in a statement, usually up to three when enough context remains. Do not restrict it to one word per sentence. Preserve existing clozes and also consider unclozed portions of the same sentence; continue numbering after the highest existing number. Keep meaningful multiword concepts together. Leave at least roughly half the statement visible and limit the batch. Avoid generic filler terms and whole-sentence clozes. Keep source wording, editable drafts, undo, and local-heuristic review labels.
+- User example: `A desmosome is a junction site where intermediate filaments contact the membrane` should support `A {{c1::desmosome}} is a junction site where {{c2::intermediate filaments}} contact the {{c3::membrane}}`. With desmosome already c1, Auto cloze should still suggest intermediate filaments and membrane as c2 and c3. This illustrates concept coverage rather than a biology-only rule.
+- **Select** must allow text selection directly on the displayed source slide. Image rendering with a separate transcript alone is insufficient. Add a correctly aligned native/OCR text layer and preserve annotation behavior. Label OCR limitations.
+- Add a sticky **top slide progress meter** with original slide number, total, percentage, and a glow that grows stronger as the user advances. Reference pages must not inflate the source-slide count.
+- At the middle original slide, show animated heart confetti and exactly **you are half way! Don't turn back**. At the final original slide, show animated heart confetti and exactly **You made it! Way to go big dawg!**. Persist once-per-notebook milestone flags, support dismissal, and respect reduced motion.
+
+Read [selection and progress implementation](references/selection-and-progress.md) when building or upgrading these features. Embed the bundled assets or implement an equivalent tested version. Verify the user's example, real pointer text selection, both exact milestone messages, actual heart animation, progress glow, and portable state restoration in the exact delivered notebook. Preserve existing notes, cards, deck identity, and storage keys.
