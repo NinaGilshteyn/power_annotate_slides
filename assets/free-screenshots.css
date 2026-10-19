@@ -1,0 +1,10 @@
+.screenshot-layer{position:absolute;inset:0;z-index:4;pointer-events:none}
+.screenshot-object{position:absolute;pointer-events:auto;cursor:move;touch-action:none;outline:1px solid transparent}
+.screenshot-object.selected,.screenshot-object:focus-within{outline:2px solid #8c65d5}
+.screenshot-object>img{width:100%;height:100%;object-fit:contain;display:block;pointer-events:none;user-select:none;margin:0}
+.screenshot-resize,.screenshot-remove{position:absolute;padding:0;display:none;background:#49348e;color:white;border:1px solid white;line-height:20px;width:24px;height:24px;border-radius:5px;z-index:1}
+.screenshot-resize{right:0;bottom:0;cursor:nwse-resize;touch-action:none}
+.screenshot-remove{right:0;top:0;cursor:pointer}
+.screenshot-object.selected>button,.screenshot-object:focus-within>button{display:block}
+.slide.drawing .screenshot-layer{pointer-events:none}.slide.drawing .screenshot-object{pointer-events:none}
+.creator-credit{padding:24px 10px 12px;text-align:center;color:var(--muted);font-size:12px}

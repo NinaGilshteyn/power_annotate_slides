@@ -78,3 +78,23 @@ These are defaults for all subjects and decks, not just the demonstration notebo
 - At the middle original slide, show animated heart confetti and exactly **you are half way! Don't turn back**. At the final original slide, show animated heart confetti and exactly **You made it! Way to go big dawg!**. Persist once-per-notebook milestone flags, support dismissal, and respect reduced motion.
 
 Read [selection and progress implementation](references/selection-and-progress.md) when building or upgrading these features. Embed the bundled assets or implement an equivalent tested version. Verify the user's example, real pointer text selection, both exact milestone messages, actual heart animation, progress glow, and portable state restoration in the exact delivered notebook. Preserve existing notes, cards, deck identity, and storage keys.
+
+
+## Clean pages and movable screenshots
+
+New reference pages start as a clean canvas: do not print paste instructions, citation placeholders, or other instructional filler on the page itself. Render a user-entered heading, citation, or excerpt only when present; keep adding/editing controls in the sidebar or editor below.
+
+Allow Ctrl+V image paste, a sidebar Paste screenshot button with clipboard-permission fallback, image upload, and image-file drop on **every** original slide and inserted page. Store screenshots as independently identified page-anchored objects, separate from source images. Each screenshot supports drag to move, corner-handle resize preserving aspect ratio, and removal. Keep geometry normalized to its page; constrain images to the page and preserve layout through zoom, reorder, save/reopen, and JSON import/export. Read/Select mode manipulates images; drawing modes must still draw without interception by screenshots. Migrate existing reference images without duplication or content loss. Preserve images when duplicating an inserted page and remove their state when deleting that page. Validate image types, sizes, and finite geometry when importing.
+
+At the bottom of the notebook, include exactly: **Brought to you by Nina Gilshteyn, M.S.** Keep the credit in portable saved HTML.
+
+The assets free-screenshots.js and free-screenshots.css provide the D/S-runtime implementation; adapt bindings for other notebooks. The JS replaces the earlier reference-only paste block and wraps rendering/snapshot/import handling; control hooks for clear/duplicate/delete must run after ordinary handlers. Verify real pointer drag and resize, original-slide paste, inserted-page paste, existing-image migration, zoom, plain-text paste, drawing/select interaction, JSON validation, and fresh-storage portable restoration with exactly one image/control layer and one credit.
+
+
+## Editable text boxes and saved palette
+
+Support pasted text as movable/resizable text boxes on every original slide and inserted page, in addition to screenshots. Provide Add text box and Paste text controls. A text paste outside existing editors creates a box; pasting inside a box or existing input edits that field normally. Use a safe plain-text editor and apply user formatting separately; never execute pasted HTML. Each box has independently saved text, page ID, normalized position/size, font family, size, bold, italic, underline, alignment, text color, and optional background fill. Formatting controls act on the selected box. Provide drag handles, resize handles, deletion, visible selection, and editing in Select mode; drawing modes must still work. Keep content, formatting and geometry through zoom, duplication, reorder, deletion, JSON export/import and portable HTML restoration.
+
+Include standard neutral/primary/pastel colors, a color picker, editable validated hex value, Save color, and removable saved custom swatches. Offer an explicit target for drawing/highlight color, selected text-box text, or selected text-box fill; do not unexpectedly recolor unrelated objects. Saving a selected drawing color must be easy. Deduplicate custom colors, preserve them per notebook in browser/portable state, and restore them with notes and cards. Do not claim global cross-notebook palettes unless implemented.
+
+Use bundled text-boxes-palette.js/.css with appropriate binding adaptations. The screenshot paste handler must delegate non-image clipboard content to the text-box paste handler before reference-page text handling. Duplication/deletion hooks must include text boxes. Verify text paste and editing, formatting, drag/resize, drawing mode, standard/custom colors, invalid hex input, duplicate swatches, JSON validation, and fresh-storage save/reopen without duplicate controls.
