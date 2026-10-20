@@ -117,3 +117,8 @@ Include an **Emoji stickers** annotation tool with a compact picker of hearts, s
 ## Optional progress and thumbnail visibility
 
 Keep the top progress meter and left slide thumbnails **visible by default**, including a compact thumbnail rail on small screens. Add small persistent top-navigation buttons labeled Hide progress/Show progress and Hide slides/Show slides. Each toggles its own region independently; hiding the rail expands the slide workspace, and hiding progress removes its reserved space. Keep Show buttons reachable while their regions are hidden. Preserve each choice in browser and portable notebook state; missing preferences default to visible. Maintain the separate Tools sidebar control. Verify independent toggle combinations, desktop/mobile layouts, keyboard/accessible states, and save/reopen without duplicate controls.
+
+
+## Brand mark
+
+Use a purple lightning bolt inside the lavender rounded logo tile beside Power Annotate Deck. Use an inline SVG with currentColor so the shape is consistent across platforms; do not use the previous star/sparkle mark. Preserve the logo in saved HTML.
