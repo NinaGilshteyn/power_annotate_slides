@@ -10,9 +10,14 @@ The skill is defined in [`SKILL.md`](SKILL.md). When invoked, the agent builds t
 - **Notes and drawing**: an editable notes area and pinned sticky notes per slide, plus pencil, highlight, text, rectangle, ellipse, arrow, line, eraser, and undo. Drawings are anchored to slide coordinates, so they survive zoom.
 - **Inserted reference pages**: add pages before or after any slide with pasted text, clipboard or local images, and source attribution. Pages can be moved, duplicated, and deleted without changing original slide numbers.
 - **Anki cloze cards**: editable drafts generated from verified slide text, a card library and editor, and TSV export (Text, Extra, Tags) for import as the Cloze note type.
+- **Card selection, filtering, and bulk actions**: select cards (or **Select all cards**) to delete them or export only the selection as TSV, with **Undo delete** to recover. You can also choose to display only the cards for a given slide. Cards are automatically tagged with their slide number when imported into Anki.
 - **Learned preferences**: after three distinct edits, the notebook adapts future card suggestions to your style. Everything stays local, can be toggled or reset, and is exportable as JSON.
 - **Google Docs notes**: one-click **New Google Doc notes** copies a template (general or slide-by-slide) and opens a new doc for you to paste into. Your notes are included only if you choose to.
 - **Portable state**: autosave to local storage, annotation JSON export/import, and a downloadable saved HTML file. Light and dark modes, and a collapsible drawer on narrow screens.
+
+![Card library: select cards to delete or export, filter cards by slide](docs/card-selection.png)
+
+In the card library (right panel), you can select cards to delete or export, and choose to display the cards for the current slide. Each card is tagged with its slide number (for example `Slide_35`) when imported into Anki, so you can filter by slide in Anki too.
 
 ## Usage
 
@@ -40,3 +45,8 @@ Provide a PDF slide export or a PPTX file. The agent extracts and renders the sl
 ## Installation
 
 Copy this folder into your agent's skills directory (for example `~/.codex/skills/power-annotate-deck`).
+
+## Contributors
+
+- [Nina Gilshteyn](https://github.com/NinaGilshteyn)
+- Codex (OpenAI), co-author of the notebook builder, card library, and skill updates
