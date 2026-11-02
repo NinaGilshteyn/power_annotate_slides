@@ -13,7 +13,8 @@ The skill is defined in [`SKILL.md`](SKILL.md). When invoked, the agent builds t
 - **Card selection, filtering, and bulk actions**: select cards (or **Select all cards**) to delete them or export only the selection as TSV, with **Undo delete** to recover. You can also choose to display only the cards for a given slide. Cards are automatically tagged with their slide number when imported into Anki.
 - **Learned preferences**: after three distinct edits, the notebook adapts future card suggestions to your style. Everything stays local, can be toggled or reset, and is exportable as JSON.
 - **Google Docs notes**: one-click **New Google Doc notes** copies a template (general or slide-by-slide) and opens a new doc for you to paste into. Your notes are included only if you choose to.
-- **Portable state**: autosave to local storage, annotation JSON export/import, and a downloadable saved HTML file. Light and dark modes, and a collapsible drawer on narrow screens.
+- **Portable state**: autosave to local storage, annotation JSON export/import, and HTML saving that overwrites the selected notebook file, with a separate-copy download option. Five color themes each support light and dark mode, with a collapsible drawer on narrow screens.
+- **Slide management and quick cards**: toggle slide management to reorder or delete pages, and convert selected text into an editable Anki card with Alt+X.
 
 ![Card library: select cards to delete or export, filter cards by slide](docs/card-selection.png)
 
